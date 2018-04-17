@@ -1,0 +1,720 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Načítanie externých štýlov -->
+<!-- Moje hlavné štýly -->
+<link rel="stylesheet" type="text/css" href="inc/css/style.min.css" />
+<!-- Roboto Condensed -->
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700&amp;subset=latin-ext" rel="stylesheet">
+<!-- Bootstrap 4 -->
+<!-- <link rel="stylesheet" type="text/css" href="inc/css/bootstrap/bootstrap.min.css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="inc/css/bootstrap/bootstrap-grid.min.css" /> -->
+<!-- FontAwesome -->
+<link rel="stylesheet" type="text/css" href="inc/css/font-awesome.min.css" />
+<!-- WOW animations -->
+<link rel="stylesheet" type="text/css" href="inc/css/animate.css" />
+<!-- OwlCarousel -->
+<link rel="stylesheet" type="text/css" href="inc/css/owl.carousel.min.css" />
+	<title>Oknaj Lehcim - Osobná stránka užívateľa Ján Michel</title>
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- My Scripts-->
+	<script src="inc/js/scripts.js" type="application/javascript" async></script>
+	<!-- WOW animations JS -->
+	<script src="inc/js/wow/wow.min.js" type="text/javascript"></script>
+	<!-- EasyPieCharts-->
+	<script src="inc/js/easypiechart/easypiechart.min.js" type="application/javascript" async></script>
+	<!-- Bootstrap -->
+	<script src="inc/js/bootstrap/bootstrap.min.js" type="text/javascript" async></script>
+	<script src="inc/js/bootstrap/bootstrap.bundle.min.js" type="text/javascript"></script>
+	<script type="application/javascript">
+	/*
+	 * Google Map API
+	 * It's api for showing the fullscreen map to the page contact
+	 * API for google map Place
+	 *
+	 * @since v1.0.0
+	 */
+	 var map;
+	 var infowindow;
+	 var mapId = 'gmap',
+		 mapAPI = 'AIzaSyBgUmvckR5fokLg0BJmSuoJaivrwChu1u0';
+
+	   function initMap() {
+		 var styledMapType = new google.maps.StyledMapType(
+			 [
+			   {
+				 "elementType": "geometry",
+				 "stylers": [
+				   {
+					 "color": "#f5f5f5"
+				   }
+				 ]
+			   },
+			   {
+				 "elementType": "labels.icon",
+				 "stylers": [
+				   {
+					 "visibility": "off"
+				   }
+				 ]
+			   },
+			   {
+				 "elementType": "labels.text.fill",
+				 "stylers": [
+				   {
+					 "color": "#616161"
+				   }
+				 ]
+			   },
+			   {
+				 "elementType": "labels.text.stroke",
+				 "stylers": [
+				   {
+					 "color": "#f5f5f5"
+				   }
+				 ]
+			   },
+			   {
+				 "featureType": "administrative.land_parcel",
+				 "elementType": "labels.text.fill",
+				 "stylers": [
+				   {
+					 "color": "#bdbdbd"
+				   }
+				 ]
+			   },
+			   {
+				 "featureType": "poi",
+				 "elementType": "geometry",
+				 "stylers": [
+				   {
+					 "color": "#eeeeee"
+				   }
+				 ]
+			   },
+			   {
+				 "featureType": "poi",
+				 "elementType": "labels.text.fill",
+				 "stylers": [
+				   {
+					 "color": "#757575"
+				   }
+				 ]
+			   },
+			   {
+				 "featureType": "poi.park",
+				 "elementType": "geometry",
+				 "stylers": [
+				   {
+					 "color": "#e5e5e5"
+				   }
+				 ]
+			   },
+			   {
+				 "featureType": "poi.park",
+				 "elementType": "labels.text.fill",
+				 "stylers": [
+				   {
+					 "color": "#9e9e9e"
+				   }
+				 ]
+			   },
+			   {
+				 "featureType": "road",
+				 "elementType": "geometry",
+				 "stylers": [
+				   {
+					 "color": "#ffffff"
+				   }
+				 ]
+			   },
+			   {
+				 "featureType": "road.arterial",
+				 "elementType": "labels.text.fill",
+				 "stylers": [
+				   {
+					 "color": "#757575"
+				   }
+				 ]
+			   },
+			   {
+				 "featureType": "road.highway",
+				 "elementType": "geometry",
+				 "stylers": [
+				   {
+					 "color": "#dadada"
+				   }
+				 ]
+			   },
+			   {
+				 "featureType": "road.highway",
+				 "elementType": "labels.text.fill",
+				 "stylers": [
+				   {
+					 "color": "#616161"
+				   }
+				 ]
+			   },
+			   {
+				 "featureType": "road.local",
+				 "elementType": "labels.text.fill",
+				 "stylers": [
+				   {
+					 "color": "#9e9e9e"
+				   }
+				 ]
+			   },
+			   {
+				 "featureType": "transit.line",
+				 "elementType": "geometry",
+				 "stylers": [
+				   {
+					 "color": "#e5e5e5"
+				   }
+				 ]
+			   },
+			   {
+				 "featureType": "transit.station",
+				 "elementType": "geometry",
+				 "stylers": [
+				   {
+					 "color": "#eeeeee"
+				   }
+				 ]
+			   },
+			   {
+				 "featureType": "water",
+				 "elementType": "geometry",
+				 "stylers": [
+				   {
+					 "color": "#c9c9c9"
+				   }
+				 ]
+			   },
+			   {
+				 "featureType": "water",
+				 "elementType": "labels.text.fill",
+				 "stylers": [
+				   {
+					 "color": "#9e9e9e"
+				   }
+				 ]
+			   }
+		   ],
+			 {name: 'Styled Map'}
+		 );
+
+			/*
+			var AdresseExample = {
+				info: '<strong>Somewhere at the world</strong><br>\
+							Example Street<br> 900 01 State<br> City<br>\
+							<a href="enter the sharing link">Navigation</a>',
+				lat: 48.644265,
+				long: 20.521690
+			};
+			*/
+
+			var myLocalization = {
+				info: '<strong>Ján Michel</strong><br>\
+							Janka Alexyho 11<br> 841 01 Bratislava - Dúbravka<br>\
+							<a href="https://goo.gl/maps/FQwUdcKTQWm">Navigation</a>',
+				lat: 48.184493,
+				long: 17.046085
+			};
+
+			var locations = [
+				[myLocalization.info, myLocalization.lat, myLocalization.long, 0],
+			   //[AdresseExample.info, AdresseExample.lat, AdresseExample.long, 1], example
+			 ];
+
+			var map = new google.maps.Map(document.getElementById(mapId), {
+				zoom: 10,
+				scrollwheel: false,
+				center: new google.maps.LatLng(48.184493, 17.046085),
+				//mapTypeId: google.maps.MapTypeId.ROADMAP,
+				mapTypeControlOptions: {
+				mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
+						'styled_map']
+					}
+			});
+
+			var infowindow = new google.maps.InfoWindow({});
+
+			var marker, i;
+
+			for (i = 0; i < locations.length; i++) {
+				marker = new google.maps.Marker({
+					position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+					map: map
+				});
+
+				google.maps.event.addListener(marker, 'click', (function (marker, i) {
+					return function () {
+						infowindow.setContent(locations[i][0]);
+						infowindow.open(map, marker);
+					}
+				})(marker, i));
+			}
+
+			map.mapTypes.set('styled_map', styledMapType);
+			map.setMapTypeId('styled_map');
+	   }
+	</script>
+</head>
+
+<body>
+	<header id="header">
+		<div class="wrapper">
+			<div class="container">
+				<div class="clearfix row">
+					<div id="main-navigation">
+						<nav id="main-menu" class="navbar navbar-expand-lg navbar-light bg-light">
+							<div class="container-fluid">
+								<div class="navbar-header">
+							    	<a class="navbar-brand" href="#">
+										Oknaj Lehcim
+									</a>
+							    </div>
+								<div class="collapse navbar-collapse" id="navbarNavDropdown">
+									<div class="mobile mobile-devices">
+										<a href="#ismobile">
+											<span class="bar-1"></span>
+											<span class="bar-2"></span>
+											<span class="bar-3"></span>
+										</a>
+									</div>
+									<ul class="nav navbar-nav">
+										<li class="nav-item active">
+											<a class="nav-link"
+											 href="#"
+											 title="Home">
+												Home
+											</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link"
+											 href="#about-me"
+											 title="About me">
+												About me
+											</a>
+										</li><!--/.list-item.nav-item-->
+										<li class="nav-item">
+											<a class="nav-link"
+											 href="#skills"
+											 title="Skills">
+												Skills
+											</a>
+										</li><!--/.list-item.nav-item-->
+										<li class="nav-item">
+											<a class="nav-link"
+											 href="#portfolio"
+											 title="Portfolio">
+												Portfolio
+											</a>
+										</li><!--/.list-item.nav-item-->
+										<li class="nav-item">
+											<a class="nav-link"
+											 href="#testimonials"
+											 title="Testimonials">
+												Testimonials
+											</a>
+										</li><!--/.list-item.nav-item-->
+										<li class="nav-item">
+											<a href="#contact"
+											 class="nav-link"
+											 title="Contact">
+												Contact
+											</a>
+										</li><!--/.list-item.nav-item-->
+									<ul>
+								</div><!--/.collapse.navbar-collapse-->
+							</div>
+						</nav><!--/#main-menu.sticky-->
+					</div><!--/#main-navigation-->
+				</div><!--/.clearfix.row-->
+			</div><!--/.container-->
+		</div><!--/.wrapper-->
+	</header><!--/#header-->
+
+	<div class="page-wrapper">
+
+		<div id="slider" class="presentation owl-carousel">
+			<div class="item">
+				<img src="inc/images/puzzle-3223941_1920.jpg" />
+				<div class="container">
+					<div class="clearfix row">
+						<div class="caption">
+							<div class="col-md-4 offset-md-3 hidden-xs">
+								<h1 class="h1 h1-slider" title="Integrated">Integrated</h1>
+								<p class="font-medium">
+									Our extensive experience with Enterprise Integration will help you seamlessly integrate a wide
+									variety of web- and server-based software into your system based on your needs.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="item">
+				<img src="inc/images/human-3175027_1920.jpg" />
+				<div class="container">
+					<div class="clearfix row">
+						<div class="caption">
+							<div class="col-md-4 offset-md-3 hidden-xs">
+								<h1 class="h1 h1-slider" title="Integrated">Social Networking</h1>
+								<p class="font-medium">
+									Our extensive experience with Enterprise Integration will help you seamlessly integrate a wide
+									variety of web- and server-based software into your system based on your needs.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/#slider.owl-carousel.presentation-->
+
+		<section id="about-me" class="section content">
+			<div class="container">
+				<div class="clearfix row has-padding">
+					<div class="col-md-4 col-sm-6 col-xs-12 wow bounceInUp">
+						<div class="text-center">
+							<div class="customized-icon"><i class="fa fa-pencil"></i></div>
+							<h3 class="h3" title="Customized">Customized</h3>
+							<p>
+							We focus on building advanced custom web applications that solve complex problems.
+							Each web-based solution is uniquely designed, so you know that it is tailored to your exact business needs.
+							</p>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 col-xs-12 wow bounceInUp">
+						<div class="text-center">
+							<div class="customized-icon"><i class="fa fa-sitemap"></i></div>
+							<h3 class="h3" title="Modern">Modern</h3>
+							<p>
+							We deliver standards-based web applications that are powerful and compatible across browsers.
+							Using Responsive Web Design, your website will perfectly fit any screen size, to ensure your users have the
+							same experience on your site, whether they access it via a smartphone, PC, or tablet.
+							</p>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 col-xs-12 wow bounceInUp">
+						<div class="text-center">
+							<div class="customized-icon"><i class="fa fa-space-shuttle"></i></div>
+							<h3 class="h3" title="Fast">Fast</h3>
+							<p>
+							Websites are judged by their performance both by users and search engines.
+							Our proven technology stack ensures a seamless user experience optimized for your specific infrastructure.
+							</p>
+						</div>
+					</div>
+				</div><!--/.clearfix.row-->
+				<div class="clearfix row has-padding">
+					<div class="col-md-4 col-sm-6 col-xs-12 wow bounceInUp">
+						<div class="text-center">
+							<div class="customized-icon"><i class="fa fa-lock"></i></div>
+							<h3 class="h3" title="Secure">Secure</h3>
+							<p>
+							We rely on the latest security standards and best practices to make sure your data is safe.
+							Vulnerability testing and continuous monitoring of known web security exploits are keys to a secure web application.
+							</p>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 col-xs-12 wow bounceInUp">
+						<div class="text-center">
+							<div class="customized-icon"><i class="fa fa-chain"></i></div>
+							<h3 class="h3" title="Integrated">Integrated</h3>
+							<p>
+							Our extensive experience with Enterprise Integration will help you seamlessly integrate a wide
+							variety of web- and server-based software into your system based on your needs.
+							</p>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 col-xs-12 wow bounceInUp">
+						<div class="text-center">
+							<div class="customized-icon"><i class="fa fa-laptop"></i></div>
+							<h3 class="h3" title="Maintainable">Maintainable</h3>
+							<p>
+							Our partnership does not end once the website is built. We continue to provide service and site maintenance long after the project is completed.
+							This includes anything from scheduled maintenance and bug fixes to ongoing enhancements and refactoring.
+							</p>
+						</div>
+					</div>
+				</div><!--/.clearfix.row-->
+			</div><!--/.container-->
+		</section><!--/#about-me.section.content-->
+
+		<section id="skills" class="section content wow bounceInUp">
+			<div class="container">
+				<div class="clearfix row">
+					<div class="entry-heading col-md-12 col-sm-12">
+						<h1 class="entry-title" title="Skills">
+							Skills
+						</h1>
+					</div>
+
+					<div class="skills skills-piecharts">
+						<div class="clearfix">
+							<div class="col-md-4 col-sm-6 col-xs-12">
+								<div class="chart" data-percent="100" data-scale-color="#ffb400">
+									<div class="custom-text"></div>
+									<div class="skills-description">HTML</div>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-6 col-xs-12">
+								<div class="chart" data-percent="73" data-scale-color="#ffb400">
+									<div class="custom-text"></div>
+									<div class="skills-description">CSS</div>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-6 col-xs-12">
+								<div class="chart" data-percent="65" data-scale-color="#ffb400">
+									<div class="custom-text"></div>
+									<div class="skills-description">JavaScript</div>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-6 col-xs-12">
+								<div class="chart" data-percent="90" data-scale-color="#ffb400">
+									<div class="custom-text"></div>
+									<div class="skills-description">jQuery & Bootstrap</div>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-6 col-xs-12">
+								<div class="chart" data-percent="70" data-scale-color="#ffb400">
+									<div class="custom-text">PHP</div>
+									<div class="skills-description">PHP</div>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-6 col-xs-12">
+								<div class="chart" data-percent="73" data-scale-color="#ffb400">
+									<div class="custom-text">MySQL</div>
+									<div class="skills-description">MySQL</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div><!--/.clearfix.row-->
+			</div><!--/.container-->
+		</section><!--/#skills.section.content-->
+
+		<section id="portfolio" class="section content wow bounceInUp">
+			<div class="container">
+				<div class="clearfix row">
+					<div class="entry-heading col-md-12 col-sm-12">
+						<h1 class="entry-title" title="Portfolio">
+							Portfolio
+						</h1>
+					</div>
+					<div class="content">
+						<div class="col-md-4 col-sm-12 col-xs-12">
+							<h3 title="Projekt 1">Projekt 1</h3>
+							<div class="project-image">
+								<img src="inc/images/lukzudesign/screenshot.png" alt="lukzudesign.com" />
+							</div>
+							<div class="project-link">
+								<a href="https://lukzudesign.com/" class="link" title="LukZu design - predaj a tvorba handmade šperkov" target="_blank">LukZu design - predaj a tvorba handmade šperkov</a>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-12 col-xs-12">
+							<h3 title="Projekt 2">Projekt 2</h3>
+							<div class="project-image">
+								<img src="inc/images/rowexim/screenshot.png" alt="rowexim.sk" />
+							</div>
+							<div class="project-link">
+								<a href="http://rowexim.sk/" class="link" title="Rowexim - jednoduchá HTML prezentácia" target="_blank">Rowexim - jednoduchá HTML prezentácia</a>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-12 col-xs-12">
+							<h3 title="Projekt 3">Projekt 3</h3>
+							<a name="grafika"></a>
+							<div class="project-image">
+								<img src="inc/images/grafika/screenshot.png" alt="Grafický návrh pre blog - šablóna PSD" />
+							</div>
+							<div class="project-link">
+								<a href="#grafika" class="link" title="Grafický návrh pre blog - šablóna PSD" target="_blank">Grafický návrh pre blog - šablóna PSD</a>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+
+				</div><!--/.clearfix.row-->
+			</div><!--/.container-->
+		</section><!--/#portfolio.section.content-->
+
+		<section id="testimonials" class="section content wow bounceInUp">
+			<div class="container">
+				<div class="clearfix row">
+					<div class="entry-heading col-md-12 col-sm-12">
+						<h1 class="entry-title" title="Testimonials">
+							Testimonials
+						</h1>
+					</div>
+
+					<div class="owl-testimonials owl-carousel col-md-12 col-sm-12">
+						<div id="testimonial-1" class="testimonial item">
+							<div id="person-1" class="person-info">
+								<div class="person-photo">
+									<img src="inc/images/john_doe.jpg" alt="John Doe" />
+								</div><!--/.person-photo-->
+								<div class="person-testemonial">
+									<blockquote>
+										"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+									</blockquote>
+								</div><!--/.person-testemonial-->
+								<div class="person-name">
+									<h4 title="John Doe">
+										John Doe
+									</h4>
+								</div><!--/.person-name-->
+							</div><!--/#person-1.person-info-->
+						</div><!--/.#testimonial-1.testimonial-->
+
+						<div id="testimonial-2" class="testimonial item">
+							<div id="person-2" class="person-info">
+								<div class="person-photo">
+									<img src="inc/images/john_doe.jpg" alt="Jane Doe" />
+								</div><!--/.person-photo-->
+								<div class="person-testemonial">
+									<blockquote>
+										"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
+									</blockquote>
+								</div><!--/.person-testemonial-->
+								<div class="person-name">
+									<h4 title="Jane Doe">
+										Jane Doe
+									</h4>
+								</div><!--/.person-name-->
+							</div><!--/#person-2.person-info-->
+						</div><!--/.#testimonial-2.testimonial-->
+
+						<div id="testimonial-3" class="testimonial item">
+							<div id="person-3" class="person-info">
+								<div class="person-photo">
+									<img src="inc/images/john_doe.jpg" alt="John Roe" />
+								</div><!--/.person-photo-->
+								<div class="person-testemonial">
+									<blockquote>
+										"Mauris at porta nisi. Ut id lectus ut nibh rutrum faucibus. Nunc ornare urna a vulputate commodo. Cras sit amet ipsum vehicula, interdum lorem non, lobortis justo."
+									</blockquote>
+								</div><!--/.person-testemonial-->
+								<div class="person-name">
+									<h4 title="John Roe">
+										John Roe
+									</h4>
+								</div><!--/.person-name-->
+							</div><!--/#person-3.person-info-->
+						</div><!--/.#testimonial-3.testimonial-->
+
+						<div id="testimonial-4" class="testimonial item">
+							<div id="person-4" class="person-info">
+								<div class="person-photo">
+									<img src="inc/images/john_doe.jpg" alt="Richard Roe" />
+								</div><!--/.person-photo-->
+								<div class="person-testemonial">
+									<blockquote>
+										"Duis cursus odio at lacus tempor, mollis placerat mauris commodo. Vestibulum maximus nunc dui, a elementum urna convallis quis. Sed pellentesque sem nec ipsum malesuada mollis."
+									</blockquote>
+								</div><!--/.person-testemonial-->
+								<div class="person-name">
+									<h4 title="Richard Roe">
+										Richard Roe
+									</h4>
+								</div><!--/.person-name-->
+							</div><!--/#person-4.person-info-->
+						</div><!--/.#testimonial-4.testimonial-->
+					</div><!--/.testimonials-->
+				</div><!--/.clearfix.row-->
+			</div><!--/.container-->
+		</section><!--/#testimonials.section.content-->
+
+		<section id="contact" class="section content wow bounceInUp">
+			<div class="container">
+				<div class="clearfix row">
+					<div class="entry-heading col-md-12 col-sm-12">
+						<h1 class="entry-title" title="Contact">
+							Contact
+						</h1>
+					</div>
+					<div id="gmap" class="gmap">
+						<!--GOOGLE API-->
+					</div>
+				</div><!--/.clearfix.row-->
+			</div><!--/.container-->
+		</section><!--/#contact.section.content-->
+	</div><!--/.page-wrapper-->
+
+	<footer id="footer" class="wow bounceInUp">
+		<div class="container">
+			<div class="clearfix row">
+				<div class="widget col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					<h2 title="Contact me" class="widget-title">Contact me</h2>
+					<form action="/action_page.php">
+					  <div class="form-group">
+					    <input type="email" class="form-control" id="email" placeholder="E-mail">
+					  </div>
+					  <div class="form-group">
+					    <textarea class="form-control" rows="5" id="message" placeholder="Message"></textarea>
+					  </div>
+					  <button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+				</div>
+				<div class="widget col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					<h2 title="Quick nav" class="widget-title">Quick nav</h2>
+					<ul>
+						<li><a href="#" title="Home">Home</a></li>
+						<li><a href="#about-me" title="About me">About me</a></li>
+						<li><a href="#skills" title="Skills">Skills</a></li>
+						<li><a href="#portfolio" title="Portfolio">Portfolio</a></li>
+						<li><a href="#testimonials" title="Testimonials">Testimonials</a></li>
+						<li><a href="#contact" title="Contact">Contact</a></li>
+					</ul>
+				</div>
+				<div id="footer-navigation" class="widget col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					<div class="d-flex-center">
+						<img src="inc/images/html5logo.png" alt="HTML5 technology" width="90" height="150"/>
+						<img src="inc/images/css3logo.png" alt="CSS3 technology" width="90" height="150"/>
+						<img src="inc/images/jslogo.png" alt="JS technology" width="90" height="150"/>
+					</div><!--/.align-left-->
+					<div class="clearfix" style="margin-top:50px">
+						<div class="align-left w50">
+							<img src="inc/images/bootstrap.png" alt="Bootstrap technology" width="170"/>
+							<img src="inc/images/jquery.png" alt="jQuery technology" width="170"/>
+						</div>
+						<div class="align-left w50">
+							<img src="inc/images/browsers.png" alt="Every browser supported" width="170"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix row">
+				<div class="social text-center">
+					<a href="https://facebook.com/oknajlehcim/">
+						<i class="fa fa-facebook"></i>
+					</a>
+					<a href="https://www.instagram.com/oknajlehcim/">
+						<i class="fa fa-instagram"></i>
+					</a>
+					<a href="https://www.youtube.com/channel/UCTvrqWPAmx_YTToeO2ishsQ">
+						<i class="fa fa-youtube"></i>
+					</a>
+				</div></div>
+				<div class="copyrights text-center">
+					&copy; 2018 All rights reserved &middot; Created by <a href="mailto:info@themes.sk?subject=Projekt%20IT%20v%20Kurze">Oknaj Lehcim</a> &middot; Powered by <a href="http://www.itvkurze.sk/" rel="follow">IT v kurze</a>
+				</div>
+			</div>
+		</div>
+		<!-- owlCarousel JS-->
+		<script src="inc/js/owl-carousel/owl.animate.js" type="text/javascript"></script>
+		<script src="inc/js/owl-carousel/owl.carousel.js" type="text/javascript"></script>
+		<script src="inc/js/owl-carousel/owl.autoplay.js" type="text/javascript"></script>
+		<script src="inc/js/owl-carousel/owl.navigation.js" type="text/javascript"></script>
+		<!-- Google Map -->
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgUmvckR5fokLg0BJmSuoJaivrwChu1u0&callback=initMap"
+		async defer></script>
+	</footer>
+
+</body>
+</html>
