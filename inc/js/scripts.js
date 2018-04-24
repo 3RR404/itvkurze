@@ -130,7 +130,7 @@
 	}
 
 	function introduction(){
-		if( 'undefined' !== typeof $.fn.owlCarousel.Constructor ) {
+		//if( 'undefined' !== typeof $.fn.owlCarousel.Constructor ) {
 			// intro slider
 			$('.presentation').owlCarousel({
 				loop:			true,
@@ -151,7 +151,7 @@
 					singleItem: true,
 					items:		1
 			});
-		}
+		//}
 	}
 
 		function animatePieCharts(){
