@@ -143,6 +143,8 @@
 				animateOut:		'fadeOut',
 				items:			1
 			});
+		}
+	function testimonialsCarousel(){
 			// testemonials carousel
 			$('.owl-testimonials').owlCarousel({
 					loop:		false,
@@ -213,6 +215,7 @@
 		smoothScrollAnchors();
 		backToTop();
 		introduction();
+		testimonialsCarousel();
 		mobileMenu();
 	});
 
