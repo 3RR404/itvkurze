@@ -139,6 +139,8 @@
 				singleItem: 	true,
 				autoplay:		true,
 				autoplayTimeout:2600,
+				animateIn:		'fadeIn',
+				animateOut:		'fadeOut',
 				items:			1
 			});
 			// testemonials carousel
