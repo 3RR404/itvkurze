@@ -130,9 +130,9 @@
 	}
 
 	function introduction(){
-		//if( 'undefined' !== typeof $.fn.owlCarousel.Constructor ) {
+		if( 'undefined' !== typeof $.fn.owlCarousel.Constructor ) {
 			// intro slider
-			$('.presentation').owlCarousel({
+			jQuery('.presentation').owlCarousel({
 				loop:			true,
 				margin:			10,
 				nav:			false,
@@ -144,14 +144,14 @@
 				items:			1
 			});
 			// testemonials carousel
-			$('.owl-testimonials').owlCarousel({
+			jQuery('.owl-testimonials').owlCarousel({
 					loop:		false,
 					margin:		40,
 					nav:		true,
 					singleItem: true,
 					items:		1
 			});
-		//}
+		}
 	}
 
 		function animatePieCharts(){
@@ -219,7 +219,6 @@
 	jQuery( window ).scroll( function( $ ) {
 		stickyNavbar();
 		animatePieCharts();
-
 	});
 
 })( window.jQuery );
