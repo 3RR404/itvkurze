@@ -130,9 +130,9 @@
 	}
 
 	function introduction(){
-		if( 'undefined' !== typeof $.fn.owlCarousel.Constructor ) {
+		if( 'undefined' !== typeof $.fn.owlCarousel ) {
 			// intro slider
-			jQuery('.presentation').owlCarousel({
+			$('.presentation').owlCarousel({
 				loop:			true,
 				margin:			10,
 				nav:			false,
@@ -144,7 +144,7 @@
 				items:			1
 			});
 			// testemonials carousel
-			jQuery('.owl-testimonials').owlCarousel({
+			$('.owl-testimonials').owlCarousel({
 					loop:		false,
 					margin:		40,
 					nav:		true,
