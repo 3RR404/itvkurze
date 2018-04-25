@@ -133,15 +133,16 @@
 		if( 'undefined' !== typeof $.fn.owlCarousel ) {
 			// intro slider
 			$('.presentation').owlCarousel({
-				loop:			true,
-				margin:			10,
-				nav:			false,
-				singleItem: 	true,
-				autoplay:		true,
-				autoplayTimeout:2600,
-				animateIn:		'fadeIn',
-				animateOut:		'fadeOut',
-				items:			1
+				loop:				true,
+				margin:				10,
+				nav:				false,
+				singleItem: 		true,
+				autoplay:			true,
+			    autoplayTimeout:	2500,
+			    autoplayHoverPause:	true
+				animateIn:			'fadeIn',
+				animateOut:			'fadeOut',
+				items:				1
 			});
 		}
 	}
