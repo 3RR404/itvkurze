@@ -144,7 +144,9 @@
 				items:			1
 			});
 		}
+	}
 	function testimonialsCarousel(){
+		if( 'undefined' !== typeof $.fn.owlCarousel ) {
 			// testemonials carousel
 			$('.owl-testimonials').owlCarousel({
 					loop:		false,
