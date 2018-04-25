@@ -139,7 +139,7 @@
 				singleItem: 		true,
 				autoplay:			true,
 			    autoplayTimeout:	2500,
-			    autoplayHoverPause:	true
+			    autoplayHoverPause:	true,
 				animateIn:			'fadeIn',
 				animateOut:			'fadeOut',
 				items:				1
